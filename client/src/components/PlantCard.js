@@ -5,21 +5,17 @@ function PlantCard({ plant }) {
 
   const [isInStock, setIsInStock] = useState(true);
 
-  function handleToggleStock() {
-    setIsInStock((isInStock) => !isInStock);
-  }
-
   return (
     <li className="card">
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>Price: {price}</p>
       {isInStock ? (
-        <button className="primary" onClick={handleToggleStock}>
+        <button className="primary" onClick={() => setIsInStock(!isInStock)}>
           In Stock
         </button>
       ) : (
-        <button onClick={handleToggleStock}>Out of Stock</button>
+        <button onClick={() => setIsInStock(!isInStock)}>Out of Stock</button>
       )}
     </li>
   );
